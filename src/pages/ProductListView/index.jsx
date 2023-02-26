@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { SearchBar } from '@/components/ui'
+import { SearchBar, ProductList } from '@/components'
 import classes from './styles.module.css'
 
 function ProductListView() {
@@ -10,6 +10,7 @@ function ProductListView() {
       <div className={classes.searchbar}>
         <SearchBar onSearch={hanldeOnSearch} />
       </div>
+      <ProductList products={[]} />
     </section>
   )
 }
