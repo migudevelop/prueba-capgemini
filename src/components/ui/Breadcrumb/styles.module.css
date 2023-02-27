@@ -1,0 +1,18 @@
+.breadcrumb {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb__item {
+  position: relative;
+  color: var(--terciary-color);
+  margin: 0 0.5rem;
+}
+
+.breadcrumb__item:not(:last-child)::after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(0.6rem, 0px);
+  content: '/';
+}
