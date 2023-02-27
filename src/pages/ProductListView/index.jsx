@@ -1,16 +1,20 @@
-import { memo } from 'react'
+import { memo, useState } from 'react'
 import { SearchBar, ProductList } from '@/components'
+import { getAllProducts } from '@/services'
 import classes from './styles.module.css'
 
 function ProductListView() {
-  const hanldeOnSearch = () => {}
+  const [products, setProducts] = useState([])
+  const hanldeOnSearch = (search) => {
+    getAllProducts({ search }).then((res) => setProducts(res))
+  }
 
   return (
     <section className={classes.wrapper}>
       <div className={classes.searchbar}>
         <SearchBar onSearch={hanldeOnSearch} />
       </div>
-      <ProductList products={[]} />
+      <ProductList products={products} />
     </section>
   )
 }

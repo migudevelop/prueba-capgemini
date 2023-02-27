@@ -7,4 +7,11 @@
   color: var(--secondary-color);
   border: 2px solid var(--secondary-color);
   user-select: none;
+  width: 100%;
+}
+
+@media (min-width: 62em) {
+  .wrapper {
+    width: auto;
+  }
 }

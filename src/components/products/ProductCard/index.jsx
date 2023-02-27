@@ -1,6 +1,7 @@
 import { memo } from 'react'
 import PropTypes from 'prop-types'
 import { Image } from '@/components'
+import { formats } from '@/utils'
 import classes from './styles.module.css'
 
 function ProductCard({ product = {} }) {
@@ -9,8 +10,13 @@ function ProductCard({ product = {} }) {
   return (
     <div className={classes.card}>
       <Image src={image} alt={title} />
-      <h3>{title}</h3>
-      <h4>{price}</h4>
+      <div className={classes.info}>
+        <h1>{model}</h1>
+        <p>{brand}</p>
+        <span className={classes.price}>
+          {formats.numberToCurrency({ number: price })}
+        </span>
+      </div>
     </div>
   )
 }
