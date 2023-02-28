@@ -2,10 +2,12 @@ import { memo } from 'react'
 import { NavLink } from 'react-router-dom'
 import { ROUTES_LINKS } from '@/routes'
 import { Badge, Breadcrumb } from '@/components'
+import { useCart } from '@/hooks'
 import classes from './styles.module.css'
 import { FaShoppingCart } from 'react-icons/fa'
 
 function Header() {
+  const { cartProducts } = useCart()
   return (
     <header>
       <nav>
@@ -13,7 +15,7 @@ function Header() {
           Products Shop
         </NavLink>
         <Breadcrumb />
-        <Badge text={1}>
+        <Badge text={cartProducts.length}>
           <FaShoppingCart className={classes.cart} />
         </Badge>
       </nav>
