@@ -14,11 +14,11 @@ function Header() {
         <NavLink className={classes.title} to={ROUTES_LINKS.HOME}>
           Products Shop
         </NavLink>
-        <Breadcrumb />
         <Badge text={cartProducts.length}>
           <FaShoppingCart className={classes.cart} />
         </Badge>
       </nav>
+      <Breadcrumb className={classes.breadcrum} />
     </header>
   )
 }

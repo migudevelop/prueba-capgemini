@@ -21,3 +21,8 @@ header > nav {
 .cart {
   font-size: 1.5rem;
 }
+
+.breadcrum {
+  display: flex;
+  margin-top: 0.5rem;
+}

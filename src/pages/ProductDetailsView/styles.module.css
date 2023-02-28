@@ -1,0 +1,13 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: auto;
+  place-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 62em) {
+  .wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}

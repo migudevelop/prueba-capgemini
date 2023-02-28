@@ -1,0 +1,8 @@
+.add-cart-button {
+  display: flex;
+  gap: 1rem;
+}
+
+.add-cart-button:hover {
+  opacity: 1;
+}
