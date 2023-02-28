@@ -2,7 +2,7 @@ export const mappedProduct = (products = []) =>
   products.map(
     ({
       id,
-      image,
+      thumbnail,
       brand,
       model,
       price,
@@ -18,7 +18,7 @@ export const mappedProduct = (products = []) =>
       id,
       brand,
       model,
-      image,
+      image: thumbnail,
       price,
       details: {
         cpu,
