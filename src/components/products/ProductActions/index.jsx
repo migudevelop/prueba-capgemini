@@ -1,12 +1,24 @@
 import { memo } from 'react'
 import PropTypes from 'prop-types'
-import { AddCartButton } from '@/components'
+import { Select, AddCartButton } from '@/components'
 import classes from './styles.module.css'
 
 function ProductActions() {
+  const colors = [
+    { label: 'blue', value: 1 },
+    { label: 'blue', value: 2 },
+    { label: 'blue', value: 3 }
+  ]
+  const storage = [{ label: '1GB', value: 1 }]
   return (
     <section className={classes.actions}>
-      <AddCartButton />
+      <div className={classes['product-options']}>
+        <Select options={colors} />
+        <Select options={storage} />
+      </div>
+      <div>
+        <AddCartButton />
+      </div>
     </section>
   )
 }

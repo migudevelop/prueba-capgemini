@@ -10,20 +10,20 @@ function ProductDetails({ product = {} }) {
   const title = `${brand} - ${model}`
   return (
     <section className={classes.details}>
-      <h1>{title}</h1>
-      {formats.numberToCurrency({ number: price })}
-      <div>
-        <ul>
-          <li>{`CPU: ${cpu}`}</li>
-          <li>{`RAM: ${ram}`}</li>
-          <li>{`OS: ${os}`}</li>
-          <li>{`Screen Size: ${screen_size}`}</li>
-          <li>{`Battery: ${battery}`}</li>
-          <li>{`Cameras: ${cameras}`}</li>
-          <li>{`Dimensions: ${dimensions}`}</li>
-          <li>{`Weight: ${weight}`}</li>
-        </ul>
-      </div>
+      <h1 className={classes.details_title}>{title}</h1>
+      <h2 className={classes.details_price}>
+        {formats.numberToCurrency({ number: price })}
+      </h2>
+      <ul className={classes.details_list}>
+        <li>{`CPU: ${cpu}`}</li>
+        <li>{`RAM: ${ram}`}</li>
+        <li>{`OS: ${os}`}</li>
+        <li>{`Screen Size: ${screen_size}`}</li>
+        <li>{`Battery: ${battery}`}</li>
+        <li>{`Cameras: ${cameras}`}</li>
+        <li>{`Dimensions: ${dimensions}`}</li>
+        <li>{`Weight: ${weight}`}</li>
+      </ul>
     </section>
   )
 }
