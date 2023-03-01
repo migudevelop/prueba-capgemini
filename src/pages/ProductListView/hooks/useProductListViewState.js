@@ -16,7 +16,7 @@ export default function useProductListViewState() {
     isLoading,
     isError,
     data: products
-  } = useQuery('products', () => getProducts({}))
+  } = useQuery('products', () => getProducts())
 
   const showLoader = isLoading && !isError && products == null
 

@@ -8,6 +8,11 @@ const __dirname = path.dirname(__filename)
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: 'src/setupTests.js'
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')
