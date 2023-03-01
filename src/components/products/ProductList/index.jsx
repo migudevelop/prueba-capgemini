@@ -2,6 +2,7 @@ import { memo } from 'react'
 import PropTypes from 'prop-types'
 import { ProductCard } from '@/components'
 import classes from './styles.module.css'
+import { FaSearch } from 'react-icons/fa'
 
 function ProductList({ products = [] }) {
   const hasProducts = products?.length > 0
@@ -14,9 +15,10 @@ function ProductList({ products = [] }) {
       ))}
     </ul>
   ) : (
-    <>
+    <div className={classes['not-found_block']}>
+      <FaSearch />
       <h1>No results</h1>
-    </>
+    </div>
   )
 }
 
