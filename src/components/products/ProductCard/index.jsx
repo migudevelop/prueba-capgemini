@@ -10,7 +10,6 @@ function ProductCard({ product = {} }) {
   const { id, brand, model, image, price } = product
   const title = `${brand} - ${model}`
   const handleOnClick = () => {
-    console.log(routeHelpers.generateProductDetailsURL(id))
     navigate(routeHelpers.generateProductDetailsURL(id))
   }
   return (
