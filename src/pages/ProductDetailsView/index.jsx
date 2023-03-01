@@ -1,25 +1,42 @@
-import { memo, useEffect, useState } from 'react'
+import { memo } from 'react'
 import { useParams } from 'react-router-dom'
-import { ProductDetails, ProductImage, ProductActions } from '@/components'
+import {
+  ProductDetails,
+  ProductImage,
+  ProductActions,
+  Loader
+} from '@/components'
 import { getProductById } from '@/services'
+import { useQuery } from 'react-query'
 import classes from './styles.module.css'
 
 function ProductDetailsView() {
   const { productId = '' } = useParams()
-  const [product, setProduct] = useState(null)
+  const {
+    isLoading,
+    isError,
+    data: product
+  } = useQuery(`product-${productId}`, () => getProductById({ productId }))
 
-  useEffect(() => {
-    getProductById({ productId }).then((res) => setProduct(res))
-  }, [productId])
-  if (product == null) return null
+  const showLoader = isLoading && !isError && product == null
+
   return (
-    <section className={classes.wrapper}>
-      <ProductImage product={product} />
-      <section className={classes['product-details']}>
-        <ProductDetails product={product} />
-        <ProductActions productId={productId} />
-      </section>
-    </section>
+    <>
+      {showLoader && (
+        <div className={classes['search-loader']}>
+          <Loader />
+        </div>
+      )}
+      {!showLoader && (
+        <section className={classes.wrapper}>
+          <ProductImage product={product} />
+          <section className={classes['product-details']}>
+            <ProductDetails product={product} />
+            <ProductActions productId={productId} />
+          </section>
+        </section>
+      )}
+    </>
   )
 }
 

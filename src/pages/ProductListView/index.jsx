@@ -1,26 +1,28 @@
-import { memo, useState } from 'react'
-import { SearchBar, ProductList } from '@/components'
-import { getProducts } from '@/services'
-import { constants } from '@/utils'
-import { useCookie } from '@/hooks'
+import { memo } from 'react'
+import { SearchBar, ProductList, Loader } from '@/components'
 import classes from './styles.module.css'
+import useProductListViewState from './hooks/useProductListViewState'
 
 function ProductListView() {
-  const [products, setProducts] = useState([])
-  const { cookie, updateCookie } = useCookie(constants.COOKIE_KEY, [])
-
-  const hanldeOnSearch = (search) => {
-    updateCookie([...cookie])
-    getProducts({ search }).then((res) => setProducts(res))
-  }
+  const { productsToDisplay, showLoader, handleOnSearch } =
+    useProductListViewState()
 
   return (
-    <section className={classes.wrapper}>
-      <div className={classes.searchbar}>
-        <SearchBar onSearch={hanldeOnSearch} />
-      </div>
-      <ProductList products={products} />
-    </section>
+    <>
+      {showLoader && (
+        <div className={classes['search-loader']}>
+          <Loader />
+        </div>
+      )}
+      {!showLoader && (
+        <section className={classes.wrapper}>
+          <div className={classes.searchbar}>
+            <SearchBar onSearch={handleOnSearch} />
+          </div>
+          <ProductList products={productsToDisplay} />
+        </section>
+      )}
+    </>
   )
 }
 

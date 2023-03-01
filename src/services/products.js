@@ -1,17 +1,11 @@
 import { adapters, constants } from '@/utils'
 
-export const getProducts = async ({ search }) => {
+export const getProducts = async () => {
   try {
-    const searchQuery = search ? `?q=${search}` : ''
-    const response = await fetch(`${constants.BASE_URL}/products${searchQuery}`)
+    const response = await fetch(`${constants.BASE_URL}/products`)
     const products = await response.json()
     const mapProducts = adapters.mappedProducts(products)
-    const filteredProducts = mapProducts?.filter(
-      ({ brand, model }) =>
-        brand.toUpperCase().includes(search.toUpperCase()) ||
-        model.toUpperCase().includes(search.toUpperCase())
-    )
-    return filteredProducts
+    return mapProducts
   } catch (e) {
     throw new Error('Error searching products')
   }
