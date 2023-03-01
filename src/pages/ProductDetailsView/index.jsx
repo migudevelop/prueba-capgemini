@@ -1,22 +1,22 @@
-import { memo } from 'react'
+import { memo, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { adapters } from '@/utils'
 import { ProductDetails, ProductImage, ProductActions } from '@/components'
+import { getProductById } from '@/services'
 import classes from './styles.module.css'
-import productsJSON from '@/mocks/products.json'
 
 function ProductDetailsView() {
   const { productId = '' } = useParams()
-  const mapProduct = adapters
-    .mappedProduct(
-      productsJSON.products.filter(({ id }) => `${id}` === `${productId}`)
-    )
-    ?.at(0)
+  const [product, setProduct] = useState(null)
+
+  useEffect(() => {
+    getProductById({ productId }).then((res) => setProduct(res))
+  }, [productId])
+  if (product == null) return null
   return (
     <section className={classes.wrapper}>
-      <ProductImage product={mapProduct} />
+      <ProductImage product={product} />
       <section className={classes['product-details']}>
-        <ProductDetails product={mapProduct} />
+        <ProductDetails product={product} />
         <ProductActions productId={productId} />
       </section>
     </section>
