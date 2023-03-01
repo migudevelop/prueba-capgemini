@@ -29,7 +29,7 @@ function Input({
 }
 
 Input.propTypes = {
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   type: PropTypes.string,
   className: PropTypes.string,
   placeholder: PropTypes.string,

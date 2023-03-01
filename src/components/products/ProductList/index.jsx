@@ -21,8 +21,23 @@ function ProductList({ products = [] }) {
 }
 
 ProductList.propTypes = {
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      brand: PropTypes.string.isRequired,
+      model: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      details: PropTypes.shape({
+        cpu: PropTypes.string.isRequired,
+        ram: PropTypes.number.isRequired,
+        os: PropTypes.string.isRequired,
+        screen_size: PropTypes.number.isRequired,
+        battery: PropTypes.number.isRequired,
+        cameras: PropTypes.number.isRequired,
+        dimensions: PropTypes.string.isRequired,
+        weight: PropTypes.number.isRequired
+      })
+    })
+  )
 }
 
 export default memo(ProductList)

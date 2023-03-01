@@ -51,7 +51,8 @@ function ProductActions({ productId }) {
 }
 
 ProductActions.propTypes = {
-  productId: PropTypes.number.isRequired
+  productId: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+    .isRequired
 }
 
 export default memo(ProductActions)

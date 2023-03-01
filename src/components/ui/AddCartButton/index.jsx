@@ -25,7 +25,6 @@ function AddCartButton({ disabled, elementToAdd = {} }) {
 }
 
 AddCartButton.propTypes = {
-  children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
   elementToAdd: PropTypes.object.isRequired
 }
