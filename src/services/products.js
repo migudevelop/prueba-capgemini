@@ -1,5 +1,5 @@
 import { adapters } from '@/utils'
-import productsJSON from '@/mocks/dummyProducts.json'
+import productsJSON from '@/mocks/products.json'
 
 export const getAllProducts = async ({ search }) => {
   try {

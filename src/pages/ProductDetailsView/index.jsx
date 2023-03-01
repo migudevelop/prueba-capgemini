@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { adapters } from '@/utils'
 import { ProductDetails, ProductImage, ProductActions } from '@/components'
 import classes from './styles.module.css'
-import productsJSON from '@/mocks/dummyProducts.json'
+import productsJSON from '@/mocks/products.json'
 
 function ProductDetailsView() {
   const { productId = '' } = useParams()
