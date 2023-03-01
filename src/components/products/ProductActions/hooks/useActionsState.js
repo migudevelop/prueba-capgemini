@@ -11,12 +11,11 @@ export default function useActionsState() {
     setProductStorage(e.target.value)
   }
 
-  const haveEmptyValues = productColor == null || productStorage == null
-
   return {
     productColor,
     productStorage,
-    haveEmptyValues,
+    setProductColor,
+    setProductStorage,
     handleOnChangeColor,
     handleOnChangeStorage
   }

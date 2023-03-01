@@ -2,11 +2,19 @@ import { memo } from 'react'
 import PropTypes from 'prop-types'
 import classes from './styles.module.css'
 
-function Select({ className = '', name, placeHolder, onChange, options = [] }) {
+function Select({
+  className = '',
+  name,
+  placeHolder,
+  onChange,
+  options = [],
+  defaultValue
+}) {
   return (
     <select
       className={`${classes.select} ${className}`}
       placeholder={placeHolder}
+      defaultValue={defaultValue}
       name={name}
       onChange={onChange}
     >
@@ -23,6 +31,7 @@ Select.propTypes = {
   className: PropTypes.string,
   placeHolder: PropTypes.string,
   name: PropTypes.string,
+  defaultValue: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   options: PropTypes.array.isRequired
 }
