@@ -1,0 +1,42 @@
+.color-button > input[type='radio'] {
+  display: none;
+}
+
+.color-button > input[type='radio']:checked + label > span {
+  border: 3px solid black;
+}
+
+.color-button > label {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.color_item > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease-in-out;
+}
+
+.color_item:hover > span {
+  transform: scale(1.25);
+}
+
+.color_item_selector {
+  border: 3px solid var(--primary-color);
+}
+
+.blue {
+  background-color: #2185d0;
+}
+
+.orange {
+  background-color: #f2711c;
+}
+
+.green {
+  background-color: #21ba45;
+}

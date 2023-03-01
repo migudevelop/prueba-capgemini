@@ -1,11 +1,16 @@
 import { memo, useState } from 'react'
 import { SearchBar, ProductList } from '@/components'
 import { getAllProducts } from '@/services'
+import { constants } from '@/utils'
+import { useCookie } from '@/hooks'
 import classes from './styles.module.css'
 
 function ProductListView() {
   const [products, setProducts] = useState([])
+  const { cookie, updateCookie } = useCookie(constants.COOKIE_KEY, [])
+
   const hanldeOnSearch = (search) => {
+    updateCookie([...cookie])
     getAllProducts({ search }).then((res) => setProducts(res))
   }
 

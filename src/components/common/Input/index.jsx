@@ -7,6 +7,7 @@ function Input({
   name = '',
   placeholder = '',
   className = '',
+  onClick,
   onChange,
   onKeyDown,
   disabled = false,
@@ -18,6 +19,7 @@ function Input({
       type={type}
       placeholder={placeholder}
       className={`${classes.input} ${className}`}
+      onClick={onClick}
       onChange={onChange}
       onKeyDown={onKeyDown}
       disabled={disabled}
@@ -31,6 +33,7 @@ Input.propTypes = {
   type: PropTypes.string,
   className: PropTypes.string,
   placeholder: PropTypes.string,
+  onClick: PropTypes.func,
   onChange: PropTypes.func.isRequired,
   onKeyDown: PropTypes.func,
   disabled: PropTypes.bool,
