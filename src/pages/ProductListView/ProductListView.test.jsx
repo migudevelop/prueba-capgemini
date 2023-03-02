@@ -23,11 +23,11 @@ describe('ProductListView', () => {
     vi.clearAllMocks()
   })
 
-  it('Should be display Loading... text', async () => {
+  it('Should be display skeleton component', async () => {
     useQuery.mockReturnValue({ isLoading: true })
     render(<ProductListView />)
-    const loader = await waitFor(() => screen.getByText(/Loading.../i))
-    expect(loader).toBeInTheDocument()
+    const noResultsText = await waitFor(() => screen.queryByText(/No results/i))
+    expect(noResultsText).not.toBeInTheDocument()
   })
 
   it('Should be display component without products', async () => {

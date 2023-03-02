@@ -3,3 +3,24 @@
   align-items: center;
   justify-content: flex-end;
 }
+
+.skeletonlist {
+  --list-gap: 2rem;
+  --column-count: 4;
+  --gap-count: calc(var(--column-count) - 1);
+  --total-gap-width: calc(var(--gap-count) * var(--list-gap));
+  --item--max-width: calc(
+    (100% - var(--total-gap-width)) / var(--column-count)
+  );
+
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(max(200px, var(--item--max-width)), 1fr)
+  );
+  gap: var(--list-gap);
+  width: 100%;
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}

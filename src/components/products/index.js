@@ -1,5 +1,6 @@
 export { default as ProductActions } from './ProductActions'
 export { default as ProductCard } from './ProductCard'
+export { default as ProductCardSkeleton } from './ProductCardSkeleton'
 export { default as ProductDetails } from './ProductDetails'
 export { default as ProductImage } from './ProductImage'
 export { default as ProductList } from './ProductList'
